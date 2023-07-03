@@ -44,11 +44,11 @@ class Version(namedtuple('_Version', 'major minor patch stage edition')):
         edition = f'-{self.edition}' if self.edition else ''
         return '.'.join(map(str, self[:3])) + edition + stage
 
-#encapsulation
+
 def get_latest_docker_versions():
     results = set()
     session = requests.Session()
-    #exception handling 
+
     try:
         for category in CATEGORIES:
             url = BASE_URL.format(category)
