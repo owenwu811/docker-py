@@ -12,6 +12,6 @@ RUN addgroup --gid $gid sphinx \
 
 WORKDIR /src
 COPY requirements.txt docs-requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt -r docs-requirements.txt
-
+RUN pip3 install --no-cache-dir -r requirements.txt -r docs-requirements.txt
+#switches the user context for subsequent docker commands. Any subsequent commands in the Dockerfile will be executed with the permissions and privileges of the "sphinx" user. "sphinx" is a non-root user for security purposes. 
 USER sphinx
